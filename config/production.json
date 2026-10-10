@@ -1,0 +1,8 @@
+{
+    "name": "Express Class - Production",
+    "db": {
+        "title": "DB in prod",
+        "password": "app-password"
+
+    }
+}

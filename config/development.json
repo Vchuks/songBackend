@@ -1,0 +1,7 @@
+{
+    "name": "Express Class - Development",
+    "db": {
+        "title": "Db title",
+        "password": "app-password"
+    } 
+}
