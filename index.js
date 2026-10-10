@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 // const logger = require("./middlewares/logger.js")
 const helmet = require("helmet")
 const morgan = require("morgan")
-const config = require("config")
+
 const appDebugger = require("debug")("app:mainapp")
 const dbDebugger = require("debug")("app:dbInfo")
 const homeRoute = require("./routes/home.js")
@@ -30,12 +30,9 @@ app.use("/register", userRoute)
 app.use("/login", loginRoute)
 app.use(error)
 
-appDebugger(config.get("name"))
-// console.log(config.get("db.title"))
-dbDebugger(config.get("db.password"))
 
 
-if (!config.get('jwtSecretKey')) {
+if (!process.env.songJwtKey) {
     winston.error('FATAL ERROR: jwtSecretKey is not defined.');
 }
 

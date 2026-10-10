@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const config = require("config")
+
 
 function authourizeUser(req, res, next) {
     const getToken = req.header("x-token")
@@ -8,7 +8,7 @@ function authourizeUser(req, res, next) {
         if (!getToken) {
             return res.status(401).send("Token required")
         }
-        const verifyToken = jwt.verify(getToken, config.get("jwtSecretKey"))
+        const verifyToken = jwt.verify(getToken, process.env.songJwtKey)
         req.user = verifyToken
         next()
     } catch (ex) {

@@ -1,6 +1,0 @@
-{
-    "db": {
-        "password": "app-password"
-    },
-    "jwtSecretKey": "songJwtKey" 
-}
