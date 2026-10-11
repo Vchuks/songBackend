@@ -43,7 +43,7 @@ if (app.get("env") === "development") {
 }
 
 const dbPassword = process.env.DBPASSWORD
-const dbConnect = `mongodb+srv://vchuks4all_db_user:${dbPassword}@cluster0.uwbbtpc.mongodb.net/`
+const dbConnect = `mongodb+srv://vchuks4all_db_user:${dbPassword}@cluster0.uwbbtpc.mongodb.net/songCollection`
 mongoose.connect(dbConnect)
     .then(() => {
         winston.log("info", "Database connected...")
