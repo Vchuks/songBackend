@@ -42,13 +42,15 @@ if (app.get("env") === "development") {
     appDebugger("morgan is enabled...")
 }
 
-mongoose.connect("mongodb://localhost/songcollection")
+const dbPassword = process.env.DBPASSWORD
+const dbConnect = `mongodb+srv://vchuks4all_db_user:${dbPassword}@cluster0.uwbbtpc.mongodb.net/`
+mongoose.connect(dbConnect)
     .then(() => {
         winston.log("info", "Database connected...")
     })
     .catch((err) => {
 
-        winston.add(new winston.transports.MongoDB({ db: "mongodb://localhost/songcollection" }))
+        winston.add(new winston.transports.MongoDB({ db: dbConnect }))
         winston.error("dberror", err)
     })
 
